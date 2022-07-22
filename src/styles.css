@@ -1,0 +1,46 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~bootstrap/dist/css/bootstrap.min.css";
+
+
+body{
+    background-color: #52a2f2;
+    padding:5rem 0;
+}
+
+.yes-btn{
+    border-radius: 20px;
+    background-color: #ff9007d1;
+    border:none;
+    color:#fff;
+    padding: 0.5rem 1rem;
+    margin-right: 1rem;
+}
+
+.no-btn{
+    border-radius: 20px;
+    background-color: #fff;
+    border:1px solid #000;
+    color:#000;
+    padding: 0.5rem 1rem;
+}
+
+.span-yes-btn{
+    border-radius: 20px;
+    background-color: #ff9007d1;
+    border:none;
+    color:#fff;
+    padding: 0rem 1rem;
+    margin-right: 1rem;
+}
+
+.span-no-btn{
+    border-radius: 20px;
+    background-color: #fff;
+    border:1px solid #000;
+    color:#000;
+    padding: 0rem 1rem;
+}
+
+.pad-0{
+    padding:0px;
+}

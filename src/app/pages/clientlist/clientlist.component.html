@@ -1,0 +1,56 @@
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="title">
+                    <h5>My Matches</h5>
+                    <h3>{{clientList.length}} Profiles pending with me</h3>
+                </div>
+                <div class="title" *ngIf="clientList.length == 0">
+                    <h6>No Profile found</h6>
+                </div>
+                <swiper [slidesPerView]="4" [spaceBetween]="10" 
+                [breakpoints]="{
+                    '340': {
+                        slidesPerView: 1,
+                        spaceBetween: 20
+                      },
+                      '440': {
+                        slidesPerView: 2,
+                        spaceBetween: 20
+                      },
+                    '640': {
+                      slidesPerView: 2,
+                      spaceBetween: 20
+                    },
+                    '768': {
+                      slidesPerView: 3,
+                      spaceBetween: 40
+                    },
+                    '1024': {
+                      slidesPerView: 4,
+                      spaceBetween: 20
+                    }
+                  }" [pagination]="{ clickable: false }"
+                     [scrollbar]="{ draggable: true }">
+                    <ng-template swiperSlide *ngFor="let data of clientList">
+                        <div class="card">
+                            <img (click)="onApprove(data.id)" [src]="data.photo" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">{{data.name | titlecase}}</h5>
+                                <p class="card-text">
+                                    {{data.age}} Yrs, {{data.height}}, {{data.language}}
+                                    ,{{data.profession}}, {{data.city}}, {{data.country}}
+                                </p>
+                                <div class="d-flex">
+                                    <button class="yes-btn" (click)="onApprove(data.id)">Yes</button>
+                                    <button class="no-btn" (click)="onReject(data.id)">No</button>
+                                </div>
+                            </div>
+                        </div>
+                    </ng-template>
+                </swiper>
+            </div>
+        </div>
+    </div>
+</section>

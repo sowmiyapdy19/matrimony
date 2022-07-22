@@ -1,0 +1,59 @@
+<section>
+    <div class="container">
+        <!-- <div class="toast-div">
+            <p class="warning-toast">{{toastmsg}}</p>
+            <p class="success-toast">{{successtoastmsg}} workj</p>
+        </div> -->
+        <swiper [effect]="'cards'" (slideChange)="slideChange($event)" [grabCursor]="true" class="mySwiper">
+            <ng-template swiperSlide *ngFor="let data of clientList">
+                <div>
+                    <div class="card" style="width: 19rem;">
+                        <img [src]="data.photo" class="card-img-top" alt="..." height="200">
+                        <div class="card-body">
+                            <div>
+                                <span class="verified-span" *ngIf="data?.verified == 'yes'">Verified</span>
+                                <span *ngIf="data?.nri === 'true'">Premium NRI</span>
+                            </div>
+                            <div>
+                                <h5 class="card-title">{{data.name | titlecase}}</h5>
+                                <p class="card-text">
+                                    {{data.age}} Yrs, {{data.height}}, {{data.language}}
+                                    ,{{data.profession}}, {{data.city}}, {{data.country}}
+                                </p>
+                            </div>
+                            <hr />
+                            <div>
+                                <div class="row">
+                                    <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                                        <div>
+                                            <img src="../../../assets//img/star.svg" width="15"  (click)="onShortlist(data.id)"><span
+                                                class="normal-span">Shortlist</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
+                                        <div class="row">
+                                            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 pad-0">
+                                                <span class="normal-span font-weight-bold">Like her?</span>
+                                            </div>
+                                            <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 pad-0">
+                                                <div class="d-flex">
+                                                    <span class="span-yes-btn" (click)="onApprove(data.id)"><img
+                                                            src="../../../assets//img/check.svg" width="20"></span>
+                                                    <span class="span-no-btn" (click)="onReject(data.id)"><img
+                                                            src="../../../assets//img/x.svg" width="20"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </ng-template>
+        </swiper>
+        <div *ngIf="clientList.length == 0">
+            No more recommendations
+        </div>
+    </div>
+</section>
